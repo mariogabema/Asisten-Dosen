@@ -71,7 +71,6 @@ int main() {
 	//deklarasi perintah yang akan dilakukan pada antrian
 	cout << "Ukuran antrian: " << q.size() << endl;
 	cout << "Elemen pertama: " << q.peek() << endl;
-	cout << "Elemen kedua: " << q.peek() << endl;
 	cout << "Elemen keluar: " << q.dequeue() << endl;
 	cout << "Elemen pertama: " << q.peek() << endl;
 	cout << "Ukuran antrian: " << q.size() << endl;

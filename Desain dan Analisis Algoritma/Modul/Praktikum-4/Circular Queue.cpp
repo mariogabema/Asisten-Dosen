@@ -65,8 +65,9 @@ int main() {
 	
 	cout << "Front element is: " << q.front_element()<< endl;
 	q.dequeue();
-	cout << "Front element is: " << q.front_element()<< endl;
+	cout << "Now front element is: " << q.front_element()<< endl;
 	q.dequeue();
+	cout << "Now front element is: " << q.front_element()<< endl;
 	
 	return 0;
 }
