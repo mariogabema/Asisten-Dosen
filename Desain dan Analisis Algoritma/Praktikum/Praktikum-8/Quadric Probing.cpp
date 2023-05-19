@@ -1,6 +1,6 @@
 //program hashtable dengan open addressing
 //data ditampung dalam array
-//implementasinya memakai linear probing
+//implementasinya memakai quadric probing
 //populasi data pakai nilai random
 
 #include<iostream>
@@ -15,15 +15,15 @@ int storage[1024];
 int i = 0;
 int hdt_boundary; // scope global
 
-void linear_probing(int n) {
+void quadric_probing(int n) {
 	bool inserted = false;
-	int hash; // scope local
+	int hash;
 	i = 0;
 	
 	// kalau nilai tidak dimasukkan, dan i kurang dari nilai hdt
 	while( (!inserted) && (i < hdt_boundary) ) {
 		// rumusnya
-		hash = (n % hdt_boundary) + i;
+		hash = (n % hdt_boundary) + (i*i);
 		
 		// kalau ada penyimpanan kosong, maka inputan user akan disimpan
 		if(storage[hash] == 0) {
@@ -70,9 +70,9 @@ int main() {
 	
 	for(int a = 0; a < n; ++a) {
 		random_number = getRandomNumber(0,n);
-		linear_probing(random_number);
+		quadric_probing(random_number);
 	}
 	
 	// tampilin rumusnya
-	cout << "h(k) = (k mod" << hdt_boundary << ") + i" << endl;
+	cout << "h(k) = (k mod" << hdt_boundary << ") + i*i " << endl;
 }
