@@ -9,9 +9,9 @@ class Node {
 		Node* right;
 		
 		Node(int value) {
-			data = value; // data nilainya sama dengan inputan user
-			left = NULL; // nilainya belum terdefinisi
-			right = NULL;
+			data = value; // data nilainya sama dengan root
+			left = NULL; // nilai sebelah kiri belum terdefinisi
+			right = NULL; // nilai sebelah kanan belum terdefinisi
 		}
 };
 
@@ -29,15 +29,15 @@ class Tree {
 		}
 		
 		Node* insert(Node* node, int value) {
-			// kalau nilainya belum terdefinisi
+			// kalau root masih kosong
 			if (node == NULL) {
 				node = new Node(value); // diisi oleh inputan user
 			} 
-			// tapi, kalau nilainya kurang buat bikin child 2 
+			// jika data yang dimasukkan lebih kecil daripada elemen root, maka akan diletakkan di node sebelah kiri
 			else if(value <= node->data) {
 				node->left = insert(node->left, value);
 			}
-			// kalau nilainya itu sama, atau minimal ada 2
+			// jika data yang dimasukkan lebih kecil daripada elemen root, maka akan diletakkan di node sebelah kanan
 			else {
 				node->right = insert(node->right, value);
 			}
@@ -64,6 +64,8 @@ int main() {
 	tree.insert(20);
 	tree.insert(3);
 	tree.insert(40);
+	tree.insert(60);
+	tree.insert(70);
 	tree.insert(10);
 	tree.insert(5);
 	tree.inorder();
