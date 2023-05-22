@@ -1,13 +1,16 @@
+// panggil package input output
 #include<iostream>
 
 using namespace std;
 
 class Node {
+	// variabel yang bisa diakses secara public
 	public:
 		int data;
 		Node* left;
 		Node* right;
 		
+		// constructor
 		Node(int value) {
 			data = value;
 			left = NULL;
@@ -16,17 +19,21 @@ class Node {
 };
 
 class Tree {
+	// variabel yang bisa diakses secara public
 	public:
 		Node* root;
 		
+		// constructor
 		Tree() {
 			root = NULL;
 		}
 		
+		// method memasukkan node baru
 		void insert(int value) {
 			root = insert(root, value);
 		}
 		
+		// method mengatur tampilan node
 		Node* insert(Node* node, int value) {
 			if (node == NULL) {
 				node = new Node(value);
@@ -38,11 +45,13 @@ class Tree {
 			return node;
 		}
 		
+		// method membuat inorder dengan parameter inputan root
 		void inorder() {
 			inorder(root);
 		}
 		
 		void inorder(Node* node) {
+			// kalau node tidak ada sama sekali, maka tidak ada yang ditampilkan
 			if (node == NULL) return;
 			inorder(node->left);
 			cout << node->data << " ";
@@ -51,13 +60,17 @@ class Tree {
 };
 
 int main() {
-	// create object for class Tree
+	// membuat object dari class Tree
 	Tree tree;
 	
-	// input value for class Tree
-	tree.insert(10);
-	tree.insert(5);
-	tree.insert(15);
+	// input nilai untuk class Tree
+	tree.insert(40);
+	tree.insert(25);
+	tree.insert(30);
+	tree.insert(35);
+	tree.insert(50);
+	tree.insert(45);
+	tree.insert(60);
 	tree.inorder();
 	return 0;
 }
