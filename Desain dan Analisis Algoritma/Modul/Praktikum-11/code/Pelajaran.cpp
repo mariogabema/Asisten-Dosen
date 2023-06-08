@@ -11,7 +11,7 @@ class Pelajaran { // class name
 };
 
 int main() {
-	pelajaran pel; // instance objek
+	Pelajaran pel; // instance objek
 	
 	return 0;
 }
